@@ -31,6 +31,9 @@ public class WeatherData extends Observable {
 
         // 将通知推送给观察者
         this.notifyObservers(new Data(getTemperature(), getPressure(), getHumidity()));
+
+        // 清除变化,这样观察者将不会再收到通知
+        this.clearChanged();
     }
 
     public void setData(float temperature, float pressure, float humidity) {
